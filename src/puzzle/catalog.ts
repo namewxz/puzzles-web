@@ -1,4 +1,4 @@
-import catalog from "../assets/puzzles/catalog.json";
+import catalog from "../../public/catalog.json";
 
 export const { puzzles, puzzleIds, version } = catalog;
 
