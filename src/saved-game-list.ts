@@ -112,7 +112,7 @@ export class SavedGameList extends SignalWatcher(LitElement) {
     this._itemsSignal = computed(
       () =>
         this._savedGamesSignal?.get().map((savedGame, index) => ({
-          ...savedGame,
+          ...(savedGame as SavedGameListItem),
           id: `row-${index}`,
           key: makeKey(savedGame),
         })) ?? [],
