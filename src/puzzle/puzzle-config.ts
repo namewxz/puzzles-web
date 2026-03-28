@@ -202,7 +202,7 @@ abstract class PuzzleConfigForm extends SignalWatcher(LitElement) {
 
       default:
         // @ts-expect-error: item.type never
-        throw new Error(`Unknown config item type ${item.type}`);
+        throw new Error(`Unknown config item type ${(config as any).type}`);
     }
   }
 
