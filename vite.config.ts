@@ -8,7 +8,8 @@ import { visualizer } from "rollup-plugin-visualizer";
 import { build, defineConfig, loadEnv, type UserConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 import Sitemap from "vite-plugin-sitemap";
-import { puzzleIds, puzzles } from "./src/assets/puzzles/catalog.json";
+import catalog from "./src/assets/puzzles/catalog.json";
+const { puzzleIds, puzzles } = catalog;
 import {
   extraPages,
   renderHandlebars,
