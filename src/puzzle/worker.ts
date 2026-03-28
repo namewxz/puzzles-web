@@ -87,7 +87,7 @@ export class WorkerPuzzle implements FrontendConstructorArgs {
     public readonly puzzleId: string,
     private readonly module: PuzzleModule,
   ) {
-    this.frontend = new module.Frontend({
+    this.frontend = new (module as any).Frontend({
       activateTimer: this.activateTimer,
       deactivateTimer: this.deactivateTimer,
       textFallback: this.textFallback,
