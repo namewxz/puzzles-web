@@ -208,7 +208,8 @@ abstract class PuzzleConfigForm extends SignalWatcher(LitElement) {
   private resetFormItemValues() {
     // If the form has already been rendered, re-rendering with new value attributes
     // won't update input element state. Flush current values into item properties.
-    for (const [id, { type }] of Object.entries(this.config?.items as any ?? [])) {
+    for (const [id, item] of Object.entries(this.config?.items as any ?? [])) {
+      const type = item.type;
       const value = this.changes[id] ?? this.values[id];
       if (value !== undefined) {
         for (const element of this.shadowRoot?.querySelectorAll<HTMLInputElement>(
