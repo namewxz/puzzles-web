@@ -150,13 +150,11 @@ export class SavedGameList extends SignalWatcher(LitElement) {
     const items = this.sortedItems();
 
     return html`
-      <table
-          part="list"
+      <div class="saved-game-list">
+        <table
+          class="saved-game-table"
           role="grid"
-          tabindex="0"
-          aria-activedescendant=${this.selectedItem?.id ?? nothing}
-          @keydown=${this.handleKeyDown}
-          @focus=${this.handleTableFocus}
+          @keydown=${this.handleTableKeydown}
           @blur=${this.handleTableBlur}
       >
         <thead>
@@ -165,10 +163,11 @@ export class SavedGameList extends SignalWatcher(LitElement) {
         </tr>
         </thead>
         <tbody>
-        ${repeat(items, makeKey, (item) => this.renderRow(item))}
+        ${repeat(items, (item: SavedGameListItem) => item.key, (item) => this.renderRow(item))}
         ${this.items.length === 0 ? this.renderPlaceholder() : nothing}
         </tbody>
       </table>
+    </div>
     `;
   }
 

@@ -158,7 +158,6 @@ export class Puzzle {
         update(this._statusbarText, message.statusBarText);
         break;
       default:
-        // @ts-expect-error: message.type never
         throw new Error(`Unknown notifyChange type ${message.type}`);
     }
 

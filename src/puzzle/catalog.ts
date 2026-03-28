@@ -1,6 +1,6 @@
-import { puzzles } from "../assets/puzzles/catalog.json";
+import catalog from "../assets/puzzles/catalog.json";
 
-export { puzzleIds, version } from "../assets/puzzles/catalog.json";
+export const { puzzles, puzzleIds, version } = catalog;
 
 export interface PuzzleDataMap {
   [id: string]: PuzzleData;

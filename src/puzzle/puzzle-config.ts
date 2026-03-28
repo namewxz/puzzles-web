@@ -201,7 +201,6 @@ abstract class PuzzleConfigForm extends SignalWatcher(LitElement) {
       }
 
       default:
-        // @ts-expect-error: item.type never
         throw new Error(`Unknown config item type ${(config as any).type}`);
     }
   }
@@ -209,7 +208,7 @@ abstract class PuzzleConfigForm extends SignalWatcher(LitElement) {
   private resetFormItemValues() {
     // If the form has already been rendered, re-rendering with new value attributes
     // won't update input element state. Flush current values into item properties.
-    for (const [id, { type }] of Object.entries(this.config?.items ?? [])) {
+    for (const [id, { type }] of Object.entries(this.config?.items as any ?? [])) {
       const value = this.changes[id] ?? this.values[id];
       if (value !== undefined) {
         for (const element of this.shadowRoot?.querySelectorAll<HTMLInputElement>(
