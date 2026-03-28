@@ -154,7 +154,8 @@ export class SavedGameList extends SignalWatcher(LitElement) {
         <table
           class="saved-game-table"
           role="grid"
-          @keydown=${this.handleTableKeydown}
+          @keydown=${this.handleKeyDown}
+          @focus=${this.handleTableFocus}
           @blur=${this.handleTableBlur}
       >
         <thead>
